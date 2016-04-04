@@ -2,6 +2,10 @@
 
 Atom package that folds and unfolds asciidoc headings and fenced code blocks.
 
+To change keyboard shortcuts, you can edit:
+
+**keymaps/asciidoc-folds.cson**
+
 Note that the headings must use the equal signs. That is, underlined heading syntax does not work.
 There must also be some whitespace between the equal sign and the heading text. Examples that DO work:
 
