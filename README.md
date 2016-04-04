@@ -1,8 +1,8 @@
-# asciidocs-folds package
+# asciidoc-folds package
 
-This is a fork of markdown-folder package.  
+This is a Asciidoc ported version of markdown-folder package.  
 
-This package folds and unfolds asciidocs headings and fenced code blocks.
+This package folds and unfolds asciidoc headings and fenced code blocks.
 
 Note that the headings must use the equal signs. That is, underlined title formatting does not work.
 There must also be some whitespace between the equal sign and the heading text. Examples that DO work:
