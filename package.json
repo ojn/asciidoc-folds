@@ -1,28 +1,28 @@
 {
-  "name": "markdown-folder",
-  "main": "./lib/markdown-folder",
+  "name": "asciidoc-folds",
+  "main": "./lib/asciidoc-folds",
   "version": "0.5.0",
-  "description": "Folds and unfolds markdown headings",
+  "description": "Folds and unfolds asciidoc headings",
   "keywords": [
-    "markdown"
+    "asciidoc"
   ],
   "activationCommands": {
     "atom-workspace": [
-      "markdown-folder:dwim-toggle",
-      "markdown-folder:toggle",
-      "markdown-folder:cycle",
-      "markdown-folder:togglefenced",
-      "markdown-folder:cycleall",
-      "markdown-folder:toggleallfenced",
-      "markdown-folder:foldall-h1",
-      "markdown-folder:foldall-h2",
-      "markdown-folder:foldall-h3",
-      "markdown-folder:foldall-h4",
-      "markdown-folder:foldall-h5",
-      "markdown-folder:unfoldall"
+      "asciidoc-folds:dwim-toggle",
+      "asciidoc-folds:toggle",
+      "asciidoc-folds:cycle",
+      "asciidoc-folds:togglefenced",
+      "asciidoc-folds:cycleall",
+      "asciidoc-folds:toggleallfenced",
+      "asciidoc-folds:foldall-h1",
+      "asciidoc-folds:foldall-h2",
+      "asciidoc-folds:foldall-h3",
+      "asciidoc-folds:foldall-h4",
+      "asciidoc-folds:foldall-h5",
+      "asciidoc-folds:unfoldall"
     ]
   },
-  "repository": "https://github.com/melke/markdown-folder",
+  "repository": "https://github.com/usermail/asciidoc-folds/",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
