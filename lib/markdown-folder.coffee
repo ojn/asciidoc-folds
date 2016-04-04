@@ -29,11 +29,11 @@ module.exports = MarkdownFolder =
     @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:cycleall': => @cycleall()
     @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:toggleallfenced': => @toggleallfenced()
     @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:unfoldall': => @unfoldall()
-    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h1': => @foldall(/^(#+)/)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h2': => @foldall(/^(##+)/)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h3': => @foldall(/^(###+)/)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h4': => @foldall(/^(####+)/)
-    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h5': => @foldall(/^(#####+)/)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h1': => @foldall(/^(=+)/)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h2': => @foldall(/^(==+)/)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h3': => @foldall(/^(===+)/)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h4': => @foldall(/^(====+)/)
+    @subscriptions.add atom.commands.add 'atom-workspace', 'markdown-folder:foldall-h5': => @foldall(/^(=====+)/)
 
   deactivate: ->
     @subscriptions.dispose()
@@ -42,9 +42,9 @@ module.exports = MarkdownFolder =
     editor = atom.workspace.getActiveTextEditor()
     row = editor.getCursorBufferPosition().row
     linetext = editor.lineTextForBufferRow(row)
-    if linetext.match(/^(#+)/) && styleOk(row)
+    if linetext.match(/^(=+)/) && styleOk(row)
       @cycle()
-    else if linetext.match(/^\s*```\w+/) && styleOk2(row)
+    else if linetext.match(/^\s*----/) && styleOk2(row)
       @togglefenced()
     else
       event.abortKeyBinding()
@@ -62,13 +62,13 @@ module.exports = MarkdownFolder =
     else
       action = editor.__markdownfolder_nextaction
     if action == 'fold'
-      @foldall(/^#+\s/)
+      @foldall(/^=+\s/)
     else if action == 'unfold'
       editor.unfoldAll()
     else   # show headings
       for linenumber in [editor.getLastBufferRow()..0]
         linetext = editor.lineTextForBufferRow(linenumber)
-        if linetext.match(/^#+\s/) && styleOk(linenumber)
+        if linetext.match(/^=+\s/) && styleOk(linenumber)
           @folderer('showheadings', linenumber)
     if action == 'fold'
       editor.__markdownfolder_nextaction = 'showheadings'
@@ -90,13 +90,13 @@ module.exports = MarkdownFolder =
     editor.unfoldAll()
 
   getNextMatcher: (matcher) ->
-    result = /^#\s/
+    result = /^=\s/
     switch matcher.length
-      when 2 then result = /^#\s|^##\s/
-      when 3 then result = /^#\s|^##\s|^###\s/
-      when 4 then result = /^#\s|^##\s|^###\s|^####\s/
-      when 5 then result = /^#\s|^##\s|^###\s|^####\s|^#####\s/
-      when 6 then result = /^#\s|^##\s|^###\s|^####\s|^#####\s|^######\s/
+      when 2 then result = /^=\s|^==\s/
+      when 3 then result = /^=\s|^==\s|^===\s/
+      when 4 then result = /^=\s|^==\s|^===\s|^====\s/
+      when 5 then result = /^=\s|^==\s|^===\s|^====\s|^=====\s/
+      when 6 then result = /^=\s|^==\s|^===\s|^====\s|^=====\s|^======\s/
     return result
 
   folderer: (action, startrow) ->
@@ -112,7 +112,7 @@ module.exports = MarkdownFolder =
         action = 'fold'
 
     linetext = editor.lineTextForBufferRow(startrow)
-    thematch = linetext.match(/^(#+)/)
+    thematch = linetext.match(/^(=+)/)
     nextmatchfound = false
 
     if thematch
@@ -138,14 +138,14 @@ module.exports = MarkdownFolder =
           for row in [(startrow + 1)..lastrow]
             if editor.isFoldedAtBufferRow(row)  # count folded rows
               numfolded++
-            if editor.lineTextForBufferRow(row).match(/^#+\s/) && styleOk(row)  # count headings
+            if editor.lineTextForBufferRow(row).match(/^=+\s/) && styleOk(row)  # count headings
               numheadings++
           numvisibleheadings = 0
           screenstartrow = editor.screenPositionForBufferPosition(new Point(startrow, 0)).row
           screenendrow   = editor.screenPositionForBufferPosition(new Point(lastrow, 0)).row
           numvisiblerows = screenendrow - screenstartrow
           for screenrow in [screenstartrow..screenendrow]
-            if editor.lineTextForScreenRow(screenrow).match(/^#+\s/) && styleOk(screenrow) # count visible headings
+            if editor.lineTextForScreenRow(screenrow).match(/^=+\s/) && styleOk(screenrow) # count visible headings
               numvisibleheadings++
           if numvisiblerows == 0   # fully folded
             if numheadings > 0
@@ -172,7 +172,7 @@ module.exports = MarkdownFolder =
           if action == 'showheadings'     # make several ranges
             ranges = []
             for linenr in [lastrowtofold..startrow]
-              if editor.lineTextForBufferRow(linenr).match(/^#+\s/) && styleOk(linenr) # a heading
+              if editor.lineTextForBufferRow(linenr).match(/^=+\s/) && styleOk(linenr) # a heading
                 if lastrowtofold - linenr > 0
                   ranges.push (new Range(new Point(linenr, 0), new Point(lastrowtofold, 0)))
                 lastrowtofold = linenr - 1
@@ -199,14 +199,14 @@ module.exports = MarkdownFolder =
     editor = atom.workspace.getActiveTextEditor()
     startpos = editor.getCursorBufferPosition()
     startrow = startpos.row
-    if !editor.lineTextForBufferRow(startrow).match(/^\s*```\w+/) || !styleOk2(startrow)
+    if !editor.lineTextForBufferRow(startrow).match(/^\s*----/) || !styleOk2(startrow)
       return
     shouldunfold = editor.isFoldedAtBufferRow(startrow + 1)
     row = startrow + 1
     loop
       if shouldunfold
         editor.unfoldBufferRow(row)
-      if editor.lineTextForBufferRow(row).match(/^\s*```/) && styleOk2(row)
+      if editor.lineTextForBufferRow(row).match(/^\s*----/) && styleOk2(row)
         if !shouldunfold
           editor.setSelectedBufferRange(new Range(new Point(startrow, 0), new Point(row, 0)))
           editor.foldSelectedLines()
@@ -222,8 +222,8 @@ module.exports = MarkdownFolder =
       action = editor.__markdownfolder_nextfencedaction
     lookingforfirst = true
     for row in [0..editor.getLastBufferRow()]
-      isstart = editor.lineTextForBufferRow(row).match(/^\s*```\w+/) && styleOk2(row)
-      isend = editor.lineTextForBufferRow(row).match(/^\s*```/) && styleOk2(row)
+      isstart = editor.lineTextForBufferRow(row).match(/^\s*----/) && styleOk2(row)
+      isend = editor.lineTextForBufferRow(row).match(/^\s*----/) && styleOk2(row)
       if lookingforfirst
         if isstart
           startrow = row
