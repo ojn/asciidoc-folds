@@ -22,10 +22,36 @@
       "asciidoc-folds:unfoldall"
     ]
   },
-  "repository": "https://github.com/usermail/asciidoc-folds/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usermail/asciidoc-folds.git"
+  },
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {}
-}
+  "dependencies": {},
+  "readme": "# markdown-folder package\n\nAtom package that folds and unfolds asciidoc headings and fenced code blocks.\n\nNote that the headings must use the equal signs. That is, underlining formating does not work.\nThere must also be some whitespace between the equal sign and the heading text. Examples that DO work:\n\n`= My First Heading`\n\n`== My Second Heading`\n\nCommands:\n  * 'markdown-folder:dwim-toggle': => Cycle headings if on a heading; toggle a fenced code block if on the first line; otherwise pass to the next key command\n  * 'markdown-folder:toggle': => Fold/unfold heading at cursor\n  * 'markdown-folder:unfoldall': => Unfold all headings\n  * 'markdown-folder:cycle': => Cycle heading at cursor (Collapse all - show headings - show all)\n  * 'markdown-folder:cycleall': => Cycle all h1 headings\n  * 'markdown-folder:togglefenced': => Toggle folding of fenced code blocks\n  * 'markdown-folder:toggleallfenced': => Toggle folding of all fenced code blocks\n  * 'markdown-folder:unfoldall': => Unfold all headings\n  * 'markdown-folder:foldall-h1': => Fold all h1 headings\n  * 'markdown-folder:foldall-h2': => Fold all h2 headings\n  * 'markdown-folder:foldall-h3': => Fold all h3 headings\n  * 'markdown-folder:foldall-h4': => Fold all h4 headings\n  * 'markdown-folder:foldall-h5': => Fold all h5 headings\n\n\nSuggested bindings (not implemented, use in your personal settings if you like):\n\n```\n'atom-text-editor[data-grammar=\"source gfm\"]:not([mini])':\n  'tab':        'markdown-folder:dwim-toggle'\n  'alt-c':      'markdown-folder:cycle'\n  'ctrl-alt-c': 'markdown-folder:cycleall'\n  'alt-x':      'markdown-folder:togglefenced'\n  'ctrl-alt-x': 'markdown-folder:toggleallfenced'\n  'alt-t':      'markdown-folder:toggle'\n  'ctrl-alt-1': 'markdown-folder:foldall-h1'\n  'ctrl-alt-2': 'markdown-folder:foldall-h2'\n  'ctrl-alt-3': 'markdown-folder:foldall-h3'\n  'ctrl-alt-4': 'markdown-folder:foldall-h4'\n  'ctrl-alt-5': 'markdown-folder:foldall-h5'\n```\n\nHere is an example of an [mdpad](https://github.com/tshort/mdpad/tree/gh-pages)\nmarkdown file with headings and many fenced code blocks.\n\n![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/usermail/asciidoc-folds/issues"
+  },
+  "homepage": "https://github.com/usermail/asciidoc-folds#readme",
+  "_id": "asciidoc-folds@0.5.0",
+  "_shasum": "",
+  "_resolved": "",
+  "_from": "",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".coffee": [
+        "lib\\asciidoc-folds.coffee"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+} 

@@ -1,0 +1,70 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Cycle asciidoc-folds'
+      'command': 'asciidoc-folds:cycle'
+    },
+    {
+      'label': 'Toggle asciidoc-folds'
+      'command': 'asciidoc-folds:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Asciidoc Folds'
+      'submenu': [
+        {
+          'label': 'Toggle heading / fenced block'
+          'command': 'asciidoc-folds:dwim-toggle'
+        },
+        {
+          'label': 'Cycle heading'
+          'command': 'asciidoc-folds:cycle'
+        },
+        {
+          'label': 'Cycle all headings'
+          'command': 'asciidoc-folds:cycleall'
+        },
+        {
+          'label': 'Toggle heading'
+          'command': 'asciidoc-folds:toggle'
+        },
+        {
+          'label': 'Toggle fenced block'
+          'command': 'asciidoc-folds:togglefenced'
+        },
+        {
+          'label': 'Toggle all fenced blocks'
+          'command': 'asciidoc-folds:toggleallfenced'
+        },
+        {
+          'label': 'Unfold all'
+          'command': 'asciidoc-folds:unfoldall'
+        },
+        {
+          'label': 'Fold all H1'
+          'command': 'asciidoc-folds:foldall-h1'
+        },
+        {
+          'label': 'Fold all H2'
+          'command': 'asciidoc-folds:foldall-h2'
+        },
+        {
+          'label': 'Fold all H3'
+          'command': 'asciidoc-folds:foldall-h3'
+        },
+        {
+          'label': 'Fold all H4'
+          'command': 'asciidoc-folds:foldall-h4'
+        },
+        {
+          'label': 'Fold all H5'
+          'command': 'asciidoc-folds:foldall-h5'
+        }
+      ]
+    ]
+  }
+]

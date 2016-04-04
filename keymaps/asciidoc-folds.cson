@@ -1,0 +1,25 @@
+# Keybindings require three things to be fully defined: A selector that is
+# matched against the focused element, the keystroke and the command to
+# execute.
+#
+# Below is a basic keybinding which registers on all platforms by applying to
+# the root workspace element.
+
+# For more detailed documentation see
+# https://atom.io/docs/latest/behind-atom-keymaps-in-depth
+#
+# Here are some example keybindings. They are commented, because it's almost impossible to predict which bindings
+# are most appropriate for all individuals. So, set up your own bindings or use the follwing bindings in your
+# personal settings
+#
+  'atom-text-editor[data-grammar="source gfm"]:not([mini])':
+#   'tab':        'asciidoc-folds:dwim-toggle'
+#   'ctrl-alt-c': 'asciidoc-folds:cycleall'
+#   'ctrl-alt-f': 'asciidoc-folds:toggleallfenced'
+#   'alt-t':      'asciidoc-folds:toggle'
+#   'ctrl-alt-t': 'asciidoc-folds:unfoldall'
+#   'ctrl-alt-1': 'asciidoc-folds:foldall-h1'
+    'ctrl-alt-2': 'asciidoc-folds:foldall-h2'
+#   'ctrl-alt-3': 'asciidoc-folds:foldall-h3'
+#   'ctrl-alt-4': 'asciidoc-folds:foldall-h4'
+#   'ctrl-alt-5': 'asciidoc-folds:foldall-h5'

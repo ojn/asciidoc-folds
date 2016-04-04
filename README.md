@@ -1,10 +1,8 @@
 # asciidoc-folds package
 
-This is a Asciidoc ported version of markdown-folder package.  
+Atom package that folds and unfolds asciidoc headings and fenced code blocks.
 
-This package folds and unfolds asciidoc headings and fenced code blocks.
-
-Note that the headings must use the equal signs. That is, underlined title formatting does not work.
+Note that the headings must use the equal signs. That is, underlined heading syntax does not work.
 There must also be some whitespace between the equal sign and the heading text. Examples that DO work:
 
 `= My First Heading`
@@ -45,8 +43,7 @@ Suggested bindings (not implemented, use in your personal settings if you like):
 ```
 
 Here is an example of an [mdpad](https://github.com/tshort/mdpad/tree/gh-pages)
-markdown file with headings and many fenced code blocks. 
-
-asciidoc-folds works the same but just with asciidoc syntax
+markdown file with headings and many fenced code blocks,
+asciidoc folds works the same, but it just uses asciidoc syntax
 
 ![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)
