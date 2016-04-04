@@ -45,6 +45,8 @@ Suggested bindings (not implemented, use in your personal settings if you like):
 ```
 
 Here is an example of an [mdpad](https://github.com/tshort/mdpad/tree/gh-pages)
-markdown file with headings and many fenced code blocks.
+markdown file with headings and many fenced code blocks. 
+
+asciidoc-folds works the same but just with asciidoc syntax
 
 ![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)
