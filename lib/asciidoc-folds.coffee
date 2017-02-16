@@ -174,14 +174,14 @@ module.exports = AsciidocFolds =
             for linenr in [lastrowtofold..startrow]
               if editor.lineTextForBufferRow(linenr).match(/^=+\s/) && styleOk(linenr) # a heading
                 if lastrowtofold - linenr > 0
-                  ranges.push (new Range(new Point(linenr, 0), new Point(lastrowtofold, 0)))
+                  ranges.push (new Range(new Point(linenr, Infinity), new Point(lastrowtofold, Infinity)))
                 lastrowtofold = linenr - 1
             if lastrowtofold - startrow > 1
-              ranges.push (new Range(new Point(startrow, 0), new Point(lastrowtofold, 0)))
+              ranges.push (new Range(new Point(startrow, Infinity), new Point(lastrowtofold, Infinity)))
             if ranges.length > 0
               editor.setSelectedBufferRanges(ranges)
           else
-            editor.setSelectedBufferRange(new Range(new Point(startrow, 0), new Point(lastrowtofold, 0)))
+            editor.setSelectedBufferRange(new Range(new Point(startrow, Infinity), new Point(lastrowtofold, Infinity)))
           editor.foldSelectedLines()
         editor.setCursorBufferPosition(new Point(startrow, 0))
 
