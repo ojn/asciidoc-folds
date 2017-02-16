@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/usermail/asciidoc-folds.git"
+    "url": "git+https://github.com/ojn/asciidoc-folds.git"
   },
   "license": "MIT",
   "engines": {
