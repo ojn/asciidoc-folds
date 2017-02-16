@@ -47,6 +47,7 @@ Suggested bindings (not implemented, use in your personal settings if you like):
 ```
 
 Here is an example of an [mdpad](https://github.com/tshort/mdpad/tree/gh-pages)
-it shows a markdown file with headings and many fenced code blocks, asciidoc-folds works in the same manner since it's just a fork of markdown-folder it uses asciidoc syntax
+it shows a markdown file with headings and many fenced code blocks, asciidoc-folds works in the same manner since it's just a fork of markdown-folder it uses asciidoc syntax 
+so instead of hash symbol you would use the equal signs
 
 ![Folding in action](https://github.com/tshort/markdown-folder/raw/master/markdown-folder-mdpad.gif)
