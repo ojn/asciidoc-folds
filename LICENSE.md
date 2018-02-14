@@ -1,4 +1,6 @@
-Copyright (c) 2015 <Your name here>
+Copyright (c) 2015 Tom Short @tshort
+Copyright (c) 2018 @ojn (Asciidoc conversion)
+
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
